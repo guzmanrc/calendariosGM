@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- <meta name = "format-detection" content="telephone=no"/> -->
+	<!-- <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;" /> -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> //-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="js/jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.css" />
+	<script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<style>
+
+		body{ font-family:Arial,Unicode MS ,MS Sans Serif, Lucida Console, Verdana; font-size: 13px; color: BLACK; margin: 0;}
+		
+		h2 { font-family:Arial,Unicode MS ,MS Sans Serif, Lucida Console, Verdana; font-size: 14px; color:#336699;}
+		
+		td { font-family:Arial,Helvetica; font-size: 13px; vertical-align:top; text-align:center;}
+		th { font-family:Arial,Helvetica; font-size: 13px;}
+
+		a { font-size: 13px; font-family:Arial, century gothic, Helvetica; text-decoration: none; }
+		a:link    { color:#FFFFFF; }
+		a:visited { color:#FFFFFF; }
+		a:hover   { color:#FF8040; }
+		a:active  { color:#FFFFFF; }
+		
+		.tablaprincipal { width:310px; }
+		.tablaprincipal { border:0px solid #aaaaaa; }
+		
+		p { text-align:justify; }
+	</style>
+	<script type="text/javascript" src="matematica.js"></script>
+	<title>Gregorian to Mayan Calendar</title>
+</head>
+<body>
+
+	<div data-role="page" id='main-page' data-theme="b">
+		<div data-role="header">
+			<h1>Maya - Gregoriano</h1>
+			<a href='#main-info'>Información</a>
+			<a href='#main-luna'>Serie Lunar</a>
+		</div><!-- /header -->
+		<div data-role="content">
+
+			<table class='tablaprincipal'>
+			<tr><td>
+				<div id="ddias"></div><hr>
+				
+				<table>
+					<tr><td style='vertical-align:middle;'>dia</td><td>
+						<select id="diahoy">
+							<option value=1 >01</option>
+							<option value=2 >02</option>
+							<option value=3 >03</option>
+							<option value=4 >04</option>
+							<option value=5 >05</option>
+							<option value=6 >06</option>
+							<option value=7 >07</option>
+							<option value=8 >08</option>
+							<option value=9 >09</option>
+							<option value=10>10</option>
+							<option value=11>11</option>
+							<option value=12>12</option>
+							<option value=13>13</option>
+							<option value=14>14</option>
+							<option value=15>15</option>
+							<option value=16>16</option>
+							<option value=17>17</option>
+							<option value=18>18</option>
+							<option value=19>19</option>
+							<option value=20>20</option>
+							<option value=21>21</option>
+							<option value=22>22</option>
+							<option value=23>23</option>
+							<option value=24>24</option>
+							<option value=25>25</option>
+							<option value=26>26</option>
+							<option value=27>27</option>
+							<option value=28>28</option>
+							<option value=29>29</option>
+							<option value=30>30</option>
+							<option value=31>31</option>
+						</select>
+					</td></tr><tr><td style='vertical-align:middle;'>mes</td><td>
+						<select id="mes">
+							<option value=1>Enero</option>
+							<option value=2>Febrero</option>
+							<option value=3>Marzo</option>
+							<option value=4>Abril</option>
+							<option value=5>Mayo</option>
+							<option value=6>Junio</option>
+							<option value=7>Julio</option>
+							<option value=8>Agosto</option>
+							<option value=9>Septiembre</option>
+							<option value=10>Octubre</option>
+							<option value=11>Noviembre</option>
+							<option value=12>Diciembre</option>
+						</select>
+					</td></tr><tr><td style='vertical-align:middle;'>año</td><td>
+						<input type="text" id="anyo">
+					</td></tr><tr><td style='vertical-align:middle;'>era</td><td>						
+						<select id="era">
+							<option value=DC>DC</option>
+							<option value=AC>AC</option>
+						</select><br/>
+						<INPUT TYPE="button" VALUE="a cuenta larga" onClick="acuentalarga()">
+					</td></tr>
+				</table>
+
+			</td><td style='text-align:center;border:0px solid #000000;'>
+
+				<table style='width:150px;'>
+					<tr><td style='background-color:#74BABA'>Cuenta Larga</td></tr>
+					<tr><td>
+						<table>
+							<tr><td style='vertical-align:middle;'>B'ak'tun</td><td><input type="text" id="bkt" value="0" style='width:80px'></td></tr>
+							<tr><td style='vertical-align:middle;'>K'atun</td><td><input type="text" id="kt" value="0" style='width:80px'></td></tr>
+							<tr><td style='vertical-align:middle;'>Tun</td><td><input type="text" id="t" value="0" style='width:80px'></td></tr>
+							<tr><td style='vertical-align:middle;'>Winal</td><td><input type="text" id="w" value="0" style='width:80px'></td></tr>
+							<tr><td style='vertical-align:middle;'>K'in</td><td><input type="text" id="k" value="0" style='width:80px'></td></tr>
+							<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+							<tr><td style='vertical-align:middle;'>Tzolk'in</td><td><span id="tz">4 Ajpu - Ajaw</span></td></tr>
+							<tr><td style='vertical-align:middle;'>Haab</td><td><span id="ab">8 Kumk'u</span></td></tr>
+							<tr><td style='vertical-align:middle;'>Señor de<br/>la noche</td><td><span id="sn">&nbsp;</span></td></tr>
+							<tr><td style='vertical-align:middle;'>Cargador</td><td><span id="ca">8 No'j - Kaban</span></td></tr>
+						</table>
+					</td></tr>
+					<tr><td >
+						<INPUT TYPE="button" VALUE="a Gregoriano" onClick="ordenandodias()">
+					</td></tr>
+				</table>
+			</td><td>
+				<table style='width:330px;'>
+					<tr><td>
+						<div style='width:310px;height:60px;text-align:center;'>
+							<img src="media/calendario/bisig.gif" width="225" height="55" title='Glifo Introductorio de la Serie Inicial'>
+						</div>
+					</td></tr>
+					<tr><td>
+						<table>
+							<tr><td><span id="nbktgif"></span></td><td><span id="bktgif"></span></td><td><span id="nktgif"></span></td><td><span id="ktgif"></span></td></tr>
+							<tr><td><span id="ntgif"></span></td><td><span id="tgif"></span></td><td><span id="nwgif"></span></td><td><span id="wgif"></span></td></tr>
+							<tr><td><span id="nkgif"></span></td><td><span id="kgif"></span></td><td><span id="nitzol"></span></td><td><span id="itzol"></span></td></tr>
+							<tr><td><span id="nihaab"></span></td><td><span id="ihaab"></span></td><td><span id="nisn"></span></td><td><span id="isn"></span></td></tr>
+						</table>
+					</td></tr>
+				</table>
+			</td><td style='border:0px solid #000000;background-color:#000000;text-align:center;'>
+				<div id='lunaestela' style='width:150px;height:75px;color:#ffffff;'></div>
+			</td></tr>
+			</table>
+
+		</div><!-- /content -->
+		<div data-role="footer">
+			<h1>13 B'ak'tun</h1>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+
+	<div data-role="page" id='main-luna' data-theme="b">
+		<div data-role="header">
+			<h1>Serie Lunar</h1>
+			<a href='#main-info'>Información</a>
+			<a href='#main-page'>13 B'ak'tun</a>
+		</div><!-- /header -->
+		<div data-role="content">
+		
+			<!-- <span id="dpascua"></span> //-->
+			<span id="lunaddias"></span>
+			<span id="listafl"></span>
+			
+		</div><!-- /content -->
+		<div data-role="footer">
+			<h1>13 B'ak'tun</h1>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+	
+	<div data-role="page" id='main-info' data-theme="b">
+		<div data-role="header">
+			<h1>Teoría sobre la conversión</h1>
+			<a href='#main-page'>13 B'ak'tun</a>
+			<a href='#main-luna'>Serie Lunar</a>
+		</div><!-- /header -->
+		<div data-role="content">
+
+			<p>
+			Teoría sobre la conversión entre calendarios Gregoriano y Cuenta Larga Maya utilizando el modelo de <b>Acumulación y Ordenamiento de Días.</b>
+			</p>
+			
+			<p>
+			El modelo empleado se llama <i>Acumulación y ordenamiento de días</i> y funciona así; si se asume que la fecha en la Cuenta Larga de 0.0.0.0.0 4 Ajaw 8 Kumk'u corresponde al día martes, 11 de agosto del año 3114 AC ( según Goodman, Martínez, Thompson. GMT=584,283) entonces se puede tomar esa fecha como fecha cero y a partir de allí, se ordena de acuerdo al calendario Gregoriano, asi, el siguiente dia es miercoles 12, jueves 13, etc.
+			</p>
+			
+			<p>
+			Para el cálculo de los días del Calendario Gregoriano se debe de tomar en cuenta lo siguiente: Cada 4 años hay un año bisiesto, éste tiene a febrero con 29 días y según las reglas del Calendario Gregoriano, los años bisiestos son aquellos que son divisibles entre 4 y aparte de eso, no son bisiestos los años seculares los que terminan en doble 0 como 1300 o 1700 o 1900 pero un año secular sí es bisiesto si sus primeras dos cifras son múltiplos de 4 como 1200 o 2000 o 2400.
+			</p>
+			
+			<p>
+			Para el cálculo de los días del Calendario de la Cuenta Larga se debe de considerar las siguientes equivalencias.
+			</p>
+			
+			<p>
+			<table style='font-size:medium;width:300px;'>
+				<tr style='background-color:#eeeeee'><td>B'ak'tun</td><td>144000 días</td><td>B'ak'tun</td><td>20 K'atun</td></tr>
+				<tr style='background-color:#eeeeee'><td>K'atun</td><td>7200 días</td><td>K'atun</td><td>20 Tun</td></tr>
+				<tr style='background-color:#eeeeee'><td>Tun</td><td>360 días</td><td>Tun</td><td>18 Winal</td></tr>
+				<tr style='background-color:#eeeeee'><td>Winal</td><td>20 días</td><td>Winal</td><td>20 K'in</td></tr>
+				<tr style='background-color:#eeeeee'><td>K'in</td><td>1 día</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			</table>
+			</p>
+			
+			<p>
+			Despues de cada 13 B'ak'tun se regresa a 0 B'ak'tun nuevamente y eso marca una era.
+			</p>
+			
+			<p>
+			Dada una fecha en el Calendario de la Cuenta Larga, se puede calcular el día sagrado - Tzolk'in - y el mes - Haab - tomando en cuenta lo siguiente.
+			</p>
+			
+			<p>
+			El Tzolhaab / Cholab'<br/>
+			El Haab consta de 18 meses de 20 días (de 0-19) cada uno y el último mes - Wayeb - de 5 días (de 0-4) haciendo un total de 365 días, recuerde que el conteo mensual se inicia a partir de 0. los nombres de los meses son los siguientes:<br/>
+			</p>
+			
+			
+			<p>
+			Ortografía<br/>
+			<table style='font-size:medium;width:300px;'>
+				<tr style='background-color:#eeeeee'><td>Guatemalteca</td><td>Epigrafistas</td><td>Siglo XVI</td><td>Epoca Clásica Maya</td></tr>
+				<tr style='background-color:#eeeeee'><td>Pop</td><td>Pop</td><td>Pop</td><td>K'anjala'w / K'anjala'b'</td></tr>
+				<tr style='background-color:#eeeeee'><td>Wo</td><td>Wo</td><td>Uo</td><td>Ik'at</td></tr>
+				<tr style='background-color:#eeeeee'><td>Sip</td><td>Sip</td><td>Zip</td><td>Chak'at</td></tr>
+				<tr style='background-color:#eeeeee'><td>Sotz'</td><td>Sotz'</td><td>Zotz'</td><td>Suutz'</td></tr>
+				<tr style='background-color:#eeeeee'><td>Tzek</td><td>Sek</td><td>Tzec</td><td>Kase'w / Kuse'w</td></tr>
+				<tr style='background-color:#eeeeee'><td>Xul</td><td>Xul</td><td>Xul</td><td>?</td></tr>
+				<tr style='background-color:#eeeeee'><td>Yaxk'in</td><td>Yaxk'in</td><td>Yaxkin</td><td>Yaxk'in</td></tr>
+				<tr style='background-color:#eeeeee'><td>Mol</td><td>Mol</td><td>Mol</td><td>Mol / Molo'l / Molo'w</td></tr>
+				<tr style='background-color:#eeeeee'><td>Ch'en</td><td>Ch'en</td><td>Ch'en</td><td>Ik' siho'm</td></tr>
+				<tr style='background-color:#eeeeee'><td>Yax</td><td>Yax</td><td>Yax</td><td>Yax siho'm</td></tr>
+				<tr style='background-color:#eeeeee'><td>Sak</td><td>Sak</td><td>Zak</td><td>Sak siho'm</td></tr>
+				<tr style='background-color:#eeeeee'><td>Kej</td><td>Keh</td><td>Ceh</td><td>Chak siho'm</td></tr>
+				<tr style='background-color:#eeeeee'><td>Mak</td><td>Mak</td><td>Mac</td><td>Mak</td></tr>
+				<tr style='background-color:#eeeeee'><td>K'ank'in</td><td>K'ank'in</td><td>Kankin</td><td>Uniw / Uniiw</td></tr>
+				<tr style='background-color:#eeeeee'><td>Muwan</td><td>Muwan</td><td>Muan</td><td>Muwaan</td></tr>
+				<tr style='background-color:#eeeeee'><td>Pax</td><td>Pax</td><td>Pax</td><td>Pax</td></tr>
+				<tr style='background-color:#eeeeee'><td>K'ayab'</td><td>K'ayab</td><td>Kayab</td><td>K'anasiiy</td></tr>
+				<tr style='background-color:#eeeeee'><td>Kumk'u</td><td>Kumk'u</td><td>Cumku</td><td>O'hl?</td></tr>
+				<tr style='background-color:#eeeeee'><td>Wayeb'</td><td>Wayeb</td><td>Uayeb</td><td>Wayaab'</td></tr>
+			</table>
+			</p>
+			
+			<p>
+			El Tzolk'in / Cholq'ij<br/>
+			Para el Tzolk'in el modelo es parecido, se cuentan cantidades de 1 a 13. Estos números acompañan al nombre del día.<br/><br/>
+			
+			Los nombres de los días son 20 y se cuentan correlativamente aunque el numero del tzolk'in que los acompañe no corresponda al orden del nombre del día.<br/><br/>
+			
+			Así por ejemplo: después de un día Tzolk'in 13 Muluk no continúa un día 1 Imix ni un día 14 OK, el día correcto es 1 Ok, los nombres de los dias son los siguientes:
+			</p>
+			
+			<p>
+			Dias<br/>
+			<table style='font-size:medium;width:300px;'>
+				<tr style='background-color:#eeeeee'><td>no.</td><td>K'iche'</td><td>Q'anjob'al</td><td>Yukateko</td></tr>
+				<tr style='background-color:#eeeeee'><td>1</td><td>Imox</td><td>Imox</td><td>Imix</td></tr>
+				<tr style='background-color:#eeeeee'><td>2</td><td>Iq'</td><td>Iq'</td><td>Ik'</td></tr>
+				<tr style='background-color:#eeeeee'><td>3</td><td>Aq'bal</td><td>Watan</td><td>Ak'bal</td></tr>
+				<tr style='background-color:#eeeeee'><td>4</td><td>K'at</td><td>K'ana'</td><td>K'an</td></tr>
+				<tr style='background-color:#eeeeee'><td>5</td><td>Kan</td><td>Ab'ak</td><td>Chikchan</td></tr>
+				<tr style='background-color:#eeeeee'><td>6</td><td>Keme</td><td>Tox</td><td>Kimi</td></tr>
+				<tr style='background-color:#eeeeee'><td>7</td><td>Kej</td><td>Chej</td><td>Manik'</td></tr>
+				<tr style='background-color:#eeeeee'><td>8</td><td>Q'anil</td><td>Lamb'at</td><td>Lamat</td></tr>
+				<tr style='background-color:#eeeeee'><td>9</td><td>Toj</td><td>Mulu'</td><td>Muluk</td></tr>
+				<tr style='background-color:#eeeeee'><td>10</td><td>Tz'i'</td><td>Elab'</td><td>Ok</td></tr>
+				<tr style='background-color:#eeeeee'><td>11</td><td>B'atz'</td><td>B'atz'</td><td>Chuwen</td></tr>
+				<tr style='background-color:#eeeeee'><td>12</td><td>Eb</td><td>Yub'</td><td>Eb</td></tr>
+				<tr style='background-color:#eeeeee'><td>13</td><td>Aj</td><td>B'en</td><td>Ben</td></tr>
+				<tr style='background-color:#eeeeee'><td>14</td><td>Ix</td><td>Ix</td><td>Ix</td></tr>
+				<tr style='background-color:#eeeeee'><td>15</td><td>Tz'ikin</td><td>Tz'ikin</td><td>Men</td></tr>
+				<tr style='background-color:#eeeeee'><td>16</td><td>Ajmaq</td><td>Txzb'in</td><td>Kib</td></tr>
+				<tr style='background-color:#eeeeee'><td>17</td><td>No'j</td><td>Kixkab'</td><td>Kaban</td></tr>
+				<tr style='background-color:#eeeeee'><td>18</td><td>Tijax</td><td>Chinax</td><td>Etz'nab</td></tr>
+				<tr style='background-color:#eeeeee'><td>19</td><td>Kawoq</td><td>Kaq</td><td>Kawak</td></tr>
+				<tr style='background-color:#eeeeee'><td>20</td><td>Ajpu</td><td>Ajaw</td><td>Ajaw</td></tr>
+			</table>
+			</p>
+			
+			<p>
+			Cargadores de año<br/>
+			Los cargadores del año son 4 Kaban/Noj,Ik'/Iq',Manik'/Kej,Eb/Eb y caen en 0 Pop así por ejemplo para el año 2004 la fecha Gregoriana fue abril 4,en el Calendario de la Cuenta Larga fue 12.19.11.2.17, 6 Kaban y 0 Pop. por consiguiente el cargador es 6Kaban / 6No'j.
+			</p>
+			
+			<p>
+			Calendarios Mayas: conversión entre calendarios, teoría sobre calendarios, recopilación, investigación, diseño, concepto y programación.<br/><br/>
+			Roberto Guzmán email:guzmanrc@gmail.com<br/>
+			8 Imox, 4 Tz'ikin, 13 Eb, 3 Ajpu.<br/>
+			<a href='#main-developer'>developer</a>
+			</p>
+
+		</div><!-- /content -->
+		<div data-role="footer">
+			<h1>13 B'ak'tun</h1>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+	
+	<div data-role="page" id='main-developer' data-theme="b">
+		<div data-role="header">
+			<h1>Maya - Gregoriano</h1>
+			<a href='#main-info'>Información</a>
+			<a href='#main-luna'>Serie Lunar</a>
+		</div><!-- /header -->
+		<div data-role="content">
+
+			<table style="border:1px solid #eeeeee" cellpadding="5">
+				<tr>
+					<td width="150">width</td>
+					<td><input type="text" size="20" id="t1"></td>
+				</tr>
+				<tr>
+					<td width="150">height</td>
+					<td><input type="text" size="20" id="t2"></td>
+				</tr>
+				<tr>
+					<td width="150">availWidth</td>
+					<td><input type="text" size="20" id="t5"></td>
+				</tr>
+				<tr>
+					<td width="150">availHeight</td>
+					<td><input type="text" size="20" id="t6"></td>
+				</tr>
+				<tr>
+					<td width="150">colorDepth</td>
+					<td><input type="text" size="20" id="t3"></td>
+				</tr>
+				<tr>
+					<td width="150">pixelDepth</td>
+					<td><input type="text" size="20" id="t4"></td>
+				</tr>
+			</table>
+			<input type=button onclick="show();" value="screen">
+			<script>
+				<!--
+					function show(){
+						document.getElementById("t1").value=screen.width;
+						document.getElementById("t2").value=screen.height;
+						document.getElementById("t3").value=screen.colorDepth;
+						document.getElementById("t4").value=screen.pixelDepth;
+						document.getElementById("t5").value=screen.availWidth;
+						document.getElementById("t6").value=screen.availHeight;
+					}
+				//-->
+			</script>
+
+		</div><!-- /content -->
+		<div data-role="footer">
+			<h1>13 B'ak'tun</h1>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+
+<!-- ######################################## //-->
+
+<div style='display:none'>
+  <div class="app">
+  <div id="deviceready">
+   <p class="status pending blink">Connecting to Device</p>
+   <p class="status complete blink hide">Device is Ready</p>
+  </div>
+  </div>
+<div>
+
+  <script type="text/javascript" src="cordova-2.0.0.js"></script>
+  <script type="text/javascript" src="js2/index.js"></script>
+  <script type="text/javascript">
+  app.initialize();
+			cargardatos();
+  </script>
+  
+ </body>
+</html>
